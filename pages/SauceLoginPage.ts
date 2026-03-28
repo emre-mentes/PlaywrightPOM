@@ -1,6 +1,5 @@
 import { Locator, Page } from "@playwright/test";
 
-
 export class SauceLoginPage {
   private readonly page: Page;
   private readonly userNameTextBox: Locator;
