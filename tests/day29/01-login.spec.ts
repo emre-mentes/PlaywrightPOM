@@ -20,6 +20,6 @@ test("As Customer, I should be able to log in to the application", async ({
 test("Page Object Model Usage", async ({ page }) => {
   const sauceLoginPage: SauceLoginPage = new SauceLoginPage(page);
   await sauceLoginPage.gotoLoginPage();
-  await sauceLoginPage.login();
+  await sauceLoginPage.login("standard_user","secret_sauce");
   await expect(page).toHaveURL("https://www.saucedemo.com/inventory.html");
 });
