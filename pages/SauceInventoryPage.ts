@@ -1,7 +1,7 @@
 import { Locator, Page } from "@playwright/test";
 
 
-class SauceInventoryPage {
+export class SauceInventoryPage {
 
     private readonly page : Page;
     readonly inventoryItems : Locator
@@ -9,7 +9,7 @@ class SauceInventoryPage {
 
     constructor(page:Page){
         this.page = page;
-        this.inventoryItems = page.locator("inventory_item")
+        this.inventoryItems = page.locator(".inventory_item")
 
     }
 
