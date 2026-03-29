@@ -13,4 +13,8 @@ test("inventory item test", async ({ page }) => {
   // 3. Dizinin uzunluğunun 6 olduğunu doğrula
   const inventoryPage = new SauceInventoryPage(page);
   await expect(inventoryPage.inventoryItems).toHaveCount(6);
+
+  //ikinci yol method olusturarak method üzerinden doğrulama
+  expect(await inventoryPage.getInventoryItemsCount()).toBe(6);
+
 });
