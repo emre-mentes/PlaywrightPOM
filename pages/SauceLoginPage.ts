@@ -16,12 +16,14 @@ export class SauceLoginPage {
   }
 
   async gotoLoginPage() {
-    await this.page.goto("https://www.saucedemo.com/");
+    await this.page.goto(
+      process.env.SAUCE_DEMO_URL || "https://www.saucedemo.com/",
+    );
   }
 
   async login(
-    username: string = "standard_user",
-    password: string = "secret_sauce",
+    username: string = process.env.SAUCE_DEMO_USERNAME!,
+    password: string = process.env.SAUCE_DEMO_PASSWORD ?? "secret_sauce",
   ) {
     await this.userNameTextBox.fill(username);
     await this.passwordTextBox.fill(password);
