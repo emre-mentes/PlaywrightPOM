@@ -17,11 +17,15 @@ export class OpenSourcePage {
 
   async goto() {
     await this.page.goto(
-      "https://opensource-demo.orangehrmlive.com/web/index.php/auth/login",
+      process.env.OPENSOURCE_URL ??
+        "https://opensource-demo.orangehrmlive.com/web/index.php/auth/login",
     );
   }
 
-  async login(user: string = "Admin", password: string = "admin123") {
+  async login(
+    user: string = process.env.OPENSOURCE_USERNAME!,
+    password: string = process.env.OPENSOURCE_PASSWORD!,
+  ) {
     await this.userNameInput.fill(user);
     await this.passwordInput.fill(password);
     await this.loginButton.click();
