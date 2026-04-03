@@ -1,4 +1,4 @@
-import { Page } from "playwright";
+import { Page,expect } from "@playwright/test";
 
 export class RegisterPage {
   private readonly page: Page;
@@ -38,7 +38,6 @@ export class RegisterPage {
   }) {
     await this.firstNameInput.fill(user.firstName);
     await this.lastNameInput.fill(user.lastName);
-
     await this.emailInput.fill(user.email);
     await this.telephoneInput.fill(user.telephone);
     await this.passwordInput.fill(user.password);
@@ -52,4 +51,12 @@ export class RegisterPage {
   async clickContinueButton() {
     await this.registerButton.click();
   }
+
+  async assertRegistrationSuccess(){
+
+     await expect(this.page.getByText("Your Account Has Been Created!")).toBeVisible();
+  }
+
+
+
 }
