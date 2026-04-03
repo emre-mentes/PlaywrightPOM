@@ -1,16 +1,20 @@
-import {faker} from "@faker-js/faker";
+import { faker } from "@faker-js/faker";
 
-export class FakerHelper{
+export class FakerHelper {
+  static createUser() {
+    return {
+      firstName: faker.person.firstName(),
+      lastName: faker.person.lastName(),
+      email: faker.internet.email(),
+      telephone: `+90${faker.string.numeric(10)}`,
+      password: "Test123.",
+    };
+  }
 
-    static createUser(){
-        return {
-          firstName: faker.person.firstName(),
-          lastName: faker.person.lastName(),
-          email: faker.internet.email(),
-          telephone:`+90${faker.string.numeric(10)}`,
-          password: "Test123.",
-        };
-    }
-
-
+  static createInvalidUser() {
+    return {
+      username: faker.internet.username() + "_invalid",
+      password: faker.internet.password(),
+    };
+  }
 }
