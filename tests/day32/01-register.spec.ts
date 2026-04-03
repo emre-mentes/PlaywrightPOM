@@ -2,7 +2,7 @@ import { test, expect } from "@playwright/test";
 
 test("Register Test", async ({ page }) => {
   // Test Senaryosu: Yeni bir kullanıcının register formu üzerinden başarılı şekilde kayıt olması
-  //
+  
   // Test Adımları:
   // 1. https://ecommerce-playground.lambdatest.io/index.php?route=account/register sayfasına gidilir.
   // 2. Faker ile rastgele kullanıcı bilgileri oluşturulur.

@@ -38,9 +38,18 @@ export class RegisterPage {
   }) {
     await this.firstNameInput.fill(user.firstName);
     await this.lastNameInput.fill(user.lastName);
+
     await this.emailInput.fill(user.email);
     await this.telephoneInput.fill(user.telephone);
     await this.passwordInput.fill(user.password);
     await this.passwordConfirmInput.fill(user.password);
+  }
+
+  async acceptPrivacyPolicy() {
+    await this.privacyPolicyLabel.check();
+  }
+
+  async clickContinueButton() {
+    await this.registerButton.click();
   }
 }
